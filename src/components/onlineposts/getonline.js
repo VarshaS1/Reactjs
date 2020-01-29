@@ -72,8 +72,11 @@ class GetOnlinePosts extends Component {
       return <div>Loading ...</div>
     } else {
       const posts1 = posts[0];
-
+      const postsnew1 = posts1.slice(21,30);
+      console.log("Array Slice" + JSON.stringify(postsnew1));
       const posts2 = posts[1];
+      const postsnew2 = posts2.slice(0,10);
+      console.log("Array Slice" + JSON.stringify(postsnew2));
       console.log("Length of the posts" + posts1.length );
       return (
 
@@ -81,7 +84,7 @@ class GetOnlinePosts extends Component {
           <div>
             <ol className="item" >
               {
-                posts1.map(post => (
+                postsnew1.map(post => (
                   <li key={post.id} align="start">
                     <div>
                       <input type="checkbox" defaultChecked={post.completed} />
@@ -96,7 +99,7 @@ class GetOnlinePosts extends Component {
 
             </ol>
             <Pagination
-            
+               
               currentPage={this.state.currentPage}
               totalSize={posts1.length}
               
@@ -108,7 +111,7 @@ class GetOnlinePosts extends Component {
 
           <ol className="item">
             {
-              posts2.map(post => (
+              postsnew2.map(post => (
                 <li key={post.id} align="start">
                   <div>
                     <input type="checkbox" defaultChecked={post.completed} />
@@ -122,6 +125,7 @@ class GetOnlinePosts extends Component {
 
           <Pagination
             currentPage={this.state.currentPage}
+            totalSize={posts2.length}
             totalPages={10}
             changeCurrentPage={this.changeCurrentPage}
           />
