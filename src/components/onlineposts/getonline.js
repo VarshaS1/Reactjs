@@ -12,6 +12,7 @@ class GetOnlinePosts extends Component {
     super(props);
     this.state = {
       //activePage: 10,
+      pageNumber: 1,
       //currentPage: 1,
       error: null,
       isLoaded: false,
@@ -30,7 +31,7 @@ class GetOnlinePosts extends Component {
   changeCurrentPage = numPage => {
     this.setState({ currentPage: numPage });
 
-    
+
     //fetch a data
     //or update a query to get data
   };
@@ -68,7 +69,6 @@ class GetOnlinePosts extends Component {
   render() {
 
     const { error, isLoaded, posts } = this.state;
-
     console.log(this.state)
     // console.log(posts[0])
     if (error) {
@@ -77,24 +77,26 @@ class GetOnlinePosts extends Component {
       return <div>Loading ...</div>
     } else {
       const posts1 = posts[0];
-      
-      const postsnew1 = posts1.slice((this.state.currentPage - 1) * 10).slice(0, 10);
+      const A1=(this.state.currentPage - 1) * 10
+      const A2=(this.state.currentPagePost - 1) * 10
+      const postsnew1 = posts1.slice(A1).slice(0, 10);
+      console.log(this.state.currentPage - 1)
       console.log("Array Slice" + JSON.stringify(postsnew1));
       const posts2 = posts[1];
-      const postsnew2 = posts2.slice((this.state.currentPage - 1) * 10).slice(0, 10);
+      const postsnew2 = posts2.slice(A2).slice(0, 10);
       console.log("Array Slice" + JSON.stringify(postsnew2));
       //console.log("Length of the posts" + posts1.length);
       return (
 
         <div>
           <div>
-            <ul className="item">
-              
+            <ol start={A1 + 1} className="item">
+
               {
-                postsnew1.map((post,index) => (
+                postsnew1.map((post, index) => (
                   <li key={post.id} align="start">
                     <div>
-                    <span>{post.id}</span>
+                      <span>{}</span>
                       <input type="checkbox" defaultChecked={post.completed} />
                       <span className="title">{post.title}</span>
                       <span className="body">{post.body}</span>
@@ -104,8 +106,7 @@ class GetOnlinePosts extends Component {
 
                 ))
               }
-
-            </ul>
+            </ol>
             <Pagination
               currentPage={this.state.currentPage}
               totalSize={posts1.length}
@@ -116,12 +117,11 @@ class GetOnlinePosts extends Component {
             <h2>current Page:{this.state.currentPage}</h2>
           </div>
 
-          <ul className="item">
+          <ol start={A2 + 1} className="item">
             {
               postsnew2.map(post => (
                 <li key={post.id} align="start">
                   <div>
-                    <span>{post.id}</span>
                     <input type="checkbox" defaultChecked={post.completed} />
                     <span className="title">{post.title}</span>
                     <span className="body">{post.body}</span>
@@ -129,7 +129,7 @@ class GetOnlinePosts extends Component {
                 </li>
               ))
             }
-          </ul>
+          </ol>
 
           <Pagination
             currentPage={this.state.currentPagePost}
