@@ -4,12 +4,6 @@
     color: blueviolet;
 }
 
-.item{
-    margin: 10px;
-    font-size: 20pt;
-    color: crimson;
-}
-
 .body{
     font-size: 16pt;
     color: black;
@@ -62,7 +56,12 @@
     border-top-right-radius: 4px;
     display: none!important;
   }*/
+  .item{
+    list-style-type: none;
+  }
 
+   .list-style-type:none
+  
   .pagination {
     padding: 30px 0;
   }
