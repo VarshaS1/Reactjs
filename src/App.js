@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import GetOnlinePosts from './components/onlineposts/getonline';
-// eslint-disable-next-line no-unused-vars
-import logo from './logo.svg';
 import './App.css';
 import GetLocalPosts from './components/Localposts/getlocalpost';
 
