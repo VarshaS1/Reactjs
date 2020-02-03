@@ -69,20 +69,20 @@ class GetOnlinePosts extends Component {
       return <div>Loading ...</div>
     } else {
       const posts1 = posts[0];
-      const A1=(this.state.currentPage - 1) * 10
-      const A2=(this.state.currentPagePost - 1) * 10
-      const postscompleted = posts1.slice(A1).slice(0, 10);
+      const count1=(this.state.currentPage - 1) * 10
+      const count2=(this.state.currentPagePost - 1) * 10
+      const postscompleted = posts1.slice(count1).slice(0, 10);
       console.log(this.state.currentPage - 1)
       console.log("Array Slice" + JSON.stringify(postscompleted));
       const posts2 = posts[1];
-      const postsincomplete = posts2.slice(A2).slice(0, 10);
+      const postsincomplete = posts2.slice(count2).slice(0, 10);
       console.log("Array Slice" + JSON.stringify( postsincomplete));
       //console.log("Length of the posts" + posts1.length);
       return (
 
         <div>
           <div>
-            <ol start={A1 + 1} className="item">
+            <ol start={count1 + 1} className="item">
 
               {
                 postscompleted.map((post) => (
@@ -109,7 +109,7 @@ class GetOnlinePosts extends Component {
             <h2>current Page:{this.state.currentPage}</h2>
           </div>
 
-          <ol start={A2 + 1} className="item">
+          <ol start={count2 + 1} className="item">
             {
                postsincomplete.map(post => (
                 <li  align="start">
