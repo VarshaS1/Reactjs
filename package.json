@@ -21,7 +21,7 @@
     "react-pagination": "^1.0.0",
     "react-pagination-js": "^2.0.0",
     "react-pagination-library": "^0.1.14",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "segmentize": "^0.4.1"
   },
   "scripts": {
